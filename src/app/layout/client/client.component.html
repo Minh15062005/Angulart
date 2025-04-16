@@ -1,0 +1,26 @@
+<div>
+  <nav class="bg-pink-600 p-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-3">
+          <div class="text-white text-lg font-bold">Logo</div>
+          <ul class="flex space-x-6">
+              <li><a [routerLink]="''" class="text-white hover:text-gray-300 ">Trang chủ</a></li>
+              <li><a [routerLink]="'product'" class="text-white hover:text-gray-300">Sản phẩm</a></li>
+              <li><a [routerLink]="'about'" class="text-white hover:text-gray-300">About</a></li>
+          </ul>
+        </div>
+        <div class="space-x-4">
+          <a  [routerLink]="'/register'" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-100">Đăng ký</a>
+            <a [routerLink]="'/login'" class="bg-gray-200 text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-300">Đăng nhập</a>
+        </div>
+    </div>
+</nav>
+</div>
+
+<div class="container mx-auto">
+  <router-outlet/>
+</div>
+
+<div>
+  Footer
+</div>

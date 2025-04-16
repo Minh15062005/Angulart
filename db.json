@@ -1,0 +1,78 @@
+{
+  "products": [
+    {
+      "id": "b5ef",
+      "name": "laptop",
+      "price": 9200,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh-HnDONwh-dmt1eDx778YjtRGtQKjLdHOoQ&s",
+      "category": "Laptop",
+      "status": true
+    },
+    {
+      "id": "7599",
+      "name": "laptop",
+      "price": 9200,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh-HnDONwh-dmt1eDx778YjtRGtQKjLdHOoQ&s",
+      "category": "Laptop",
+      "status": true
+    },
+    {
+      "id": "7bd0",
+      "name": "laptop",
+      "price": 9200,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh-HnDONwh-dmt1eDx778YjtRGtQKjLdHOoQ&s",
+      "category": "Điện thoại",
+      "status": true
+    }
+  ],
+  "books": [
+    {
+      "title": "khong ban dau",
+      "price": 300000,
+      "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/FPT_Polytechnic.png/1200px-FPT_Polytechnic.png",
+      "genre": "ITER net",
+      "published": true,
+      "id": "1"
+    },
+    {
+      "title": "khong ban dau",
+      "price": 123456,
+      "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/FPT_Polytechnic.png/1200px-FPT_Polytechnic.png",
+      "genre": "ITER",
+      "published": true,
+      "id": "3"
+    },
+    {
+      "title": "khong  mua",
+      "price": 900000,
+      "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/FPT_Polytechnic.png/1200px-FPT_Polytechnic.png",
+      "genre": "ITER",
+      "published": true,
+      "id": "5"
+    },
+    {
+      "id": "6",
+      "title": "khong  mua",
+      "price": 0,
+      "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/FPT_Polytechnic.png/1200px-FPT_Polytechnic.png",
+      "published": false,
+      "genre": "ITER"
+    },
+    {
+      "title": "bét men",
+      "price": 123000,
+      "imageURL": "https://scontent.fhan2-4.fna.fbcdn.net/v/t45.1600-4/487631382_1347381523050379_1826300016119991609_n.jpg?stp=c120.0.720.720a_cp0_dst-jpg_q75_s720x720_spS444_tt6&_nc_cat=1&ccb=1-7&_nc_sid=c02adf&_nc_ohc=2MXvi2Gurz4Q7kNvgE2py-z&_nc_oc=AdmCjFVytA20JviQQ-vDvsG2ek62Ru9q4xMlf3a1o906m12j8YXrMUNG7v17_j2_Srs&_nc_zt=1&_nc_ht=scontent.fhan2-4.fna&_nc_gid=HoeKixHhOFFIXFv5ukz5RA&oh=00_AYFyC5YnfoiKiM2kXc-FyLAm2i4cm-7f8CeLwfJfDPv9qA&oe=67F435BD",
+      "genre": "truyện ng nhớn",
+      "published": true,
+      "id": "0Hge7KB"
+    }
+  ],
+  "users": [
+    {
+      "email": "minhlvph49143@gmail.com",
+      "password": "$2a$10$Y21jqfsisxXgymyUNloznedir8PQjR7JmVrs4C7cXayfRAVrlbQ9C",
+      "name": "lê văn minh",
+      "id": 1
+    }
+  ]
+}

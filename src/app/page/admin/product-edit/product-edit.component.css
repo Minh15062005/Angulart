@@ -1,0 +1,49 @@
+.edit-product-form {
+    max-width: 100%; /* Set a maximum width for the form */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px; /* Add padding inside the form */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background color */
+  }
+  
+  .form-group {
+    margin-bottom: 15px; /* Space between form groups */
+  }
+  
+  .form-control {
+    width: 100%; /* Full-width inputs */
+    padding: 10px; /* Inner padding */
+    border: 1px solid #ccc; /* Border for inputs */
+    border-radius: 4px; /* Rounded corners */
+  }
+  
+  .form-check-input {
+    margin-right: 10px; /* Space between checkbox and label */
+  }
+  
+  .form-actions {
+    display: flex; /* Use flexbox for button alignment */
+    justify-content: space-between; /* Space between buttons */
+  }
+  
+  .btn {
+    padding: 10px 15px; /* Padding for buttons */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+  }
+  
+  .btn-primary {
+    background-color: #007bff; /* Primary button color */
+    color: white; /* Text color for primary button */
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d; /* Secondary button color */
+    color: white; /* Text color for secondary button */
+  }
+  
+  .btn-primary:hover, .btn-secondary:hover {
+    opacity: 0.8; /* Slightly transparent on hover */
+  }

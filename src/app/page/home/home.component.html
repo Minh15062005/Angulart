@@ -1,0 +1,8 @@
+<ul class="product-list">
+  <li *ngFor="let item of products" class="product-item">
+    <img [src]="item.image" [alt]="item.name" class="product-image">
+    <h3 class="product-name">{{ item.name }}</h3>
+    <p class="product-price">Giá: <span class="sale-price">{{ item.price | currency:'VND' }}</span></p>
+    <a [routerLink]="['/product', item.id]" class="details-btn">Chi tiết</a>
+  </li>
+</ul>

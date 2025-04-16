@@ -1,0 +1,37 @@
+
+<h1>Danh sách User</h1>
+
+<table class="table-auto">
+  <thead>
+    <tr>
+      <th class="border">STT</th>
+      <th class="border">Họ và tên</th>
+      <th class="border">Email</th>
+      <th class="border">Tuổi</th>
+      <th class="border">Giới tính</th>
+      <th class="border">Trạng thái</th>
+      <th class="border">Vai trò</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i = index">
+      <td class="border">{{i+1}}</td>
+      <td class="border">{{user.name}}</td>
+      <td class="border">{{user.email}}</td>
+      <td class="border">{{user.age}}</td>
+
+      <td [ngClass]="{'text-green-500': user.gender, 'text-yellow-500': !user.gender}" class="border" *ngIf="user.gender;else fallback">Nam</td>
+      <ng-template #fallback>
+        <td [ngClass]="{'text-green-500': user.gender, 'text-yellow-500': !user.gender}" class="border">Nữ</td>
+      </ng-template>
+
+      <td class="border">{{renderStatus(user.isActive)}}</td>
+      <td class="border" [ngSwitch]="user.role">
+        <span [ngStyle]="{'background-color': user.role == 'admin'? 'red': user.role == 'member'? 'blue': 'yellow'}" *ngSwitchCase="'admin'">Quản trị viên</span>
+        <span [ngStyle]="{'background-color': user.role == 'admin'? 'red': user.role == 'member'? 'blue': 'yellow'}" *ngSwitchCase="'member'">Người dùng</span>
+        <span [ngStyle]="{'background-color': user.role == 'admin'? 'red': user.role == 'member'? 'blue': 'yellow'}" *ngSwitchDefault>Khách</span>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>

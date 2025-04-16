@@ -1,0 +1,37 @@
+<a class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300 shadow-md" [routerLink]="'add'">➕ Thêm sách</a>
+
+<div class="overflow-x-auto mt-4">
+  <table class="min-w-full border border-gray-300 rounded-lg overflow-hidden shadow-lg">
+    <thead>
+      <tr class="bg-blue-100 text-gray-700 uppercase text-sm">
+        <th class="px-6 py-3 text-left border-b">STT</th>
+        <th class="px-6 py-3 text-left border-b">Tên sách</th>
+        <th class="px-6 py-3 text-left border-b">Giá</th>
+        <th class="px-6 py-3 text-left border-b">Hình ảnh</th>
+        <th class="px-6 py-3 text-left border-b">Trạng thái</th>
+        <th class="px-6 py-3 text-left border-b">Thể loại</th>
+        <th class="px-6 py-3 text-left border-b text-center">Hành động</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white">
+      <tr *ngFor="let book of filteredBooks; let i = index" class="hover:bg-gray-100 transition duration-200">
+        <td class="px-6 py-4 border-b">{{ i + 1 }}</td>
+        <td class="px-6 py-4 border-b font-semibold">{{ book.title }}</td>
+        <td class="px-6 py-4 border-b text-green-600 font-bold">{{ book.price | currency: 'VND' }}</td>
+        <td class="px-6 py-4 border-b">
+          <img [src]="book.imageURL" [alt]="book.title" class="w-16 h-16 object-cover rounded-lg shadow-md" />
+        </td>
+        <td class="px-6 py-4 border-b">
+          <span class="px-3 py-1 text-sm font-semibold rounded-lg" [ngClass]="{'bg-green-200 text-green-700': book.published, 'bg-red-200 text-red-700': !book.published}">
+            {{ book.published ? 'Xuất bản' : 'Chưa xuất bản' }}
+          </span>
+        </td>
+        <td class="px-6 py-4 border-b">{{ book.genre }}</td>
+        <td class="px-6 py-4 border-b flex justify-center gap-3">
+          <a [routerLink]="['edit', book.id]" class="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition shadow-md">✏️ Sửa</a>
+          <button (click)="handleDelete(book.id)" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition shadow-md">🗑️ Xóa</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

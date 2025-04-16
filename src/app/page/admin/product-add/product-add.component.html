@@ -1,0 +1,109 @@
+<form 
+  (ngSubmit)="handleSubmit(myForm)"
+  #myForm="ngForm"
+  class=" p-6 bg-white shadow-md rounded-lg space-y-4">
+  <div>
+    <label class="block text-gray-700 font-medium">Tên sản phẩm</label>
+    <input 
+      type="text" 
+      class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-blue-300"
+      placeholder="Nhập tên sản phẩm"
+      name="name"
+      [(ngModel)]="product.name"
+      #name="ngModel"
+      required
+      minlength="5"
+    />
+    <span *ngIf="name.control.errors?.['required'] && (name.touched|| myForm.submitted)" class="text-red-500">
+      Không để trống tên sản phẩm
+    </span>
+    <span *ngIf="name.control.errors?.['minlength'] && (name.touched|| myForm.submitted)" class="text-red-500">
+      Cần tối thiểu 5 Ký tự
+    </span>
+  </div>
+
+  <div>
+    <label class="block text-gray-700 font-medium">Giá bán</label>
+    <input 
+      type="number" 
+      class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-blue-300"
+      placeholder="Nhập giá bán"
+      name="price"
+      [(ngModel)]="product.price"
+      #price="ngModel"
+      required
+      min="100"
+    />
+    <span *ngIf="price.control.errors?.['required'] && (price.touched|| myForm.submitted)" class="text-red-500">
+      Không để trống giá bán sản phẩm
+    </span>
+    <span *ngIf="price.control.errors?.['min'] && (price.touched|| myForm.submitted)" class="text-red-500">
+      Cần tối thiểu 100
+    </span>
+  </div>
+
+  <div>
+    <label for="image" class="block text-gray-700 font-medium">Hình ảnh</label>
+    <input 
+      id="image"
+      type="text" 
+      class="w-full mt-1 p-2 border rounded-lg file:bg-blue-500 file:text-white file:px-4 file:py-2 file:rounded-lg file:border-0"
+      placeholder="Nhập hình ảnh"
+      name="image"
+      [(ngModel)]="product.image"
+    />
+  </div>
+
+  <div>
+    <label class="block text-gray-700 font-medium">Trạng thái</label>
+    <div class="mt-1 flex gap-4">
+      <label class="flex items-center space-x-2">
+        <input type="radio" name="status" class="accent-blue-500" 
+          [value]="true"
+          name="status"
+          [(ngModel)]="product.status"
+          #status="ngModel"
+          required
+        />
+        <span>Hoạt động</span>
+      </label>
+      <label class="flex items-center space-x-2">
+        <input type="radio" name="status" class="accent-blue-500"
+          [value]="false"
+          name="status"
+          [(ngModel)]="product.status"
+          #status="ngModel"
+          required
+        />
+        <span>Không hoạt động</span>
+      </label>
+      <span *ngIf="status.control.errors?.['required'] && (status.touched|| myForm.submitted)" class="text-red-500">
+        Không để trống trạng thái
+      </span>
+    </div>
+  </div>
+
+  <div>
+    <label class="block text-gray-700 font-medium">Danh mục</label>
+    <select class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-blue-300"
+      name="category"
+      [(ngModel)]="product.category"
+      #category="ngModel"
+      required
+      >
+      <option value="Laptop">Lap top</option>
+      <option value="Điện thoại">Điện thoại</option>
+      <option value="Âm thanh">Đồ gia dụng</option>
+    </select>
+    <span *ngIf="category.control.errors?.['required'] && (category.touched|| myForm.submitted)" class="text-red-500">
+      Không để trống danh mục
+    </span>
+  </div>
+
+  <button 
+    type="submit" 
+    class=" bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition"
+  >
+    Thêm sản phẩm
+  </button>
+</form>

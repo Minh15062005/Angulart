@@ -1,0 +1,40 @@
+<a class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition" [routerLink]="'add'">Thêm mới</a>
+<!-- <a [routerLink]="'/admin/product/add'">Thêm mới</a> -->
+
+<div class="overflow-x-auto">
+  <table class="min-w-full border border-gray-200 rounded-lg overflow-hidden">
+    <thead>
+      <tr class="bg-gray-100">
+        <th class="px-4 py-2 text-left border-b">STT</th>
+        <th class="px-4 py-2 text-left border-b">Tên sản phẩm</th>
+        <th class="px-4 py-2 text-left border-b">Giá bán</th>
+        <th class="px-4 py-2 text-left border-b">Hình ảnh</th>
+        <th class="px-4 py-2 text-left border-b">Trạng thái</th>
+        <th class="px-4 py-2 text-left border-b">Danh mục</th>
+        <th class="px-4 py-2 text-left border-b"></th>
+      </tr>
+    </thead>
+    <tbody>
+    <!-- gán product cho item  -->
+      @for (item of products; track $index) {
+        <tr class="border-b">
+          <td class="px-4 py-2">{{$index+1}}</td>
+          <td class="px-4 py-2">{{item.name}}</td>
+          <td class="px-4 py-2">{{item.price | currency: 'VND' }}</td>
+          <td class="px-4 py-2">
+            <img [src]="item.image" [alt]="item.name" class="w-12 h-12 object-cover rounded" />
+          </td>
+          <td class="px-4 py-2">
+            <span class="px-2 py-1 text-sm rounded">{{item.status? 'Còn hàng': 'Hết hàng'}}</span>
+          </td>
+          <td class="px-4 py-2">{{item.category}}</td>
+          <td class="px-4 py-2 gap-2 flex">
+            <a [routerLink]="['edit',item.id]" class="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition hover:cursor-pointer">Sửa</a>
+            <button (click)="handeDelete(item.id)" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition hover:cursor-pointer">Xóa</button>
+          </td>
+        </tr>
+      }
+      
+    </tbody>
+  </table>
+</div>

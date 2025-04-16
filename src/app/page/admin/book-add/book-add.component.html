@@ -1,0 +1,35 @@
+<h2 class="text-xl font-bold mb-4">Thêm Sách Mới</h2>
+<form [formGroup]="bookForm" (ngSubmit)="handleSubmit()">
+  <div>
+    <label class="block">Tên sách:</label>
+    <input type="text" formControlName="title" required class="border p-2 w-full">
+    <span *ngIf="bookForm.get('title')?.invalid && bookForm.get('title')?.touched" class="text-red-500 text-sm">Tên sách không được để trống</span>
+  </div>
+
+  <div>
+    <label class="block">Giá bán:</label>
+    <input type="number" formControlName="price" required class="border p-2 w-full">
+    <span *ngIf="bookForm.get('price')?.invalid && bookForm.get('price')?.touched" class="text-red-500 text-sm">Giá phải lớn hơn 0</span>
+  </div>
+
+  <div>
+    <label class="block">Ảnh:</label>
+    <input type="text" formControlName="imageURL" required class="border p-2 w-full">
+  </div>
+
+  <div>
+    <label class="block">Thể loại:</label>
+    <input type="text" formControlName="genre" required class="border p-2 w-full">
+    <span *ngIf="bookForm.get('genre')?.invalid && bookForm.get('genre')?.touched" class="text-red-500 text-sm">Thể loại không được để trống</span>
+  </div>
+
+  <div>
+    <label class="block">Xuất bản:</label>
+    <select formControlName="published" class="border p-2 w-full">
+      <option [ngValue]="true">Đã xuất bản</option>
+      <option [ngValue]="false">Chưa xuất bản</option>
+    </select>
+  </div>
+
+  <button type="submit" [disabled]="bookForm.invalid" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Thêm mới</button>
+</form>

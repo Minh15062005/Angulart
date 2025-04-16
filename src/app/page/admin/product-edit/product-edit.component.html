@@ -1,0 +1,106 @@
+<h1>Cập nhật sản phẩm</h1>
+<form [formGroup]="productForm" (ngSubmit)="handleSubmit()"
+  class=" p-6 bg-white shadow-md rounded-lg space-y-4">
+  <div>
+    <label class="block text-gray-700 font-medium">Tên sản phẩm</label>
+    <input 
+      type="text" 
+      class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-blue-300"
+      placeholder="Nhập tên sản phẩm"
+      formControlName="name"
+    />
+    <div *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched">
+      <span *ngIf="productForm.get('name')?.errors?.['required']" class="text-red-500">
+        Không để trống tên sản phẩm
+      </span>
+      <span *ngIf="productForm.get('name')?.errors?.['minlength']" class="text-red-500">
+        Cần tối thiểu 6 ký tự
+      </span>
+    </div>
+  </div>
+
+  <div>
+    <label class="block text-gray-700 font-medium">Giá bán</label>
+    <input 
+      type="number" 
+      class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-blue-300"
+      placeholder="Nhập giá bán"
+      formControlName="price"
+    />
+    <div *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched">
+      <span *ngIf="productForm.get('price')?.errors?.['required']" class="text-red-500">
+        Không để trống tên giá bán
+      </span>
+      <span *ngIf="productForm.get('price')?.errors?.['min']" class="text-red-500">
+        Cần tối thiểu 100
+      </span>
+    </div>
+  </div>
+
+  <div>
+    <label for="image" class="block text-gray-700 font-medium">Hình ảnh</label>
+    <input 
+      id="image"
+      type="text" 
+      class="w-full mt-1 p-2 border rounded-lg file:bg-blue-500 file:text-white file:px-4 file:py-2 file:rounded-lg file:border-0"
+      placeholder="Nhập hình ảnh"
+      formControlName="image"
+    />
+    <div *ngIf="productForm.get('image')?.invalid && productForm.get('image')?.touched">
+      <span *ngIf="productForm.get('image')?.errors?.['required']" class="text-red-500">
+        Không để trống hình ảnh
+      </span>
+    </div>
+  </div>
+
+  <div>
+    <label class="block text-gray-700 font-medium">Trạng thái</label>
+    <div class="mt-1 flex gap-4">
+      <label class="flex items-center space-x-2">
+        <input type="radio" name="status" class="accent-blue-500" 
+          [value]="true"
+          name="status"
+          formControlName="status" 
+        />
+        <span>Hoạt động</span>
+      </label>
+      <label class="flex items-center space-x-2">
+        <input type="radio" name="status" class="accent-blue-500"
+          [value]="false"
+          name="status"
+          formControlName="status" 
+        />
+        <span>Không hoạt động</span>
+      </label>
+      <div *ngIf="productForm.get('status')?.invalid && productForm.get('status')?.touched">
+        <span *ngIf="productForm.get('status')?.errors?.['required']" class="text-red-500">
+          Không để trống trạng thái
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <label class="block text-gray-700 font-medium">Danh mục</label>
+    <select 
+      formControlName="category" 
+      class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-blue-300"
+    >
+      <option value="Laptop">Lap top</option>
+      <option value="Điện thoại">Điện thoại</option>
+      <option value="Âm thanh">Đồ gia dụng</option>
+    </select>
+    <div *ngIf="productForm.get('category')?.invalid && productForm.get('category')?.touched">
+      <span *ngIf="productForm.get('category')?.errors?.['required']" class="text-red-500">
+        Không để trống danh mục
+      </span>
+    </div>
+  </div>
+
+  <button 
+    type="submit" 
+    class=" bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition"
+  >
+    Cập nhật sản phẩm
+  </button>
+</form>

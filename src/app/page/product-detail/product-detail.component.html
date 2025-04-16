@@ -1,0 +1,12 @@
+<div *ngIf="product" class="product-detail">
+  <h2 class="product-title">{{ product.name }}</h2>
+  <img [src]="product.image" [alt]="product.name" class="product-image">
+  
+  <p class="product-price">Giá: <span class="sale-price">{{ product.price | currency:'VND' }}</span></p>
+  <p class="product-category">Danh mục: <strong>{{ product.category }}</strong></p>
+  
+  <p *ngIf="product.status; else outOfStock" class="product-status in-stock">Tình trạng: Còn hàng</p>
+  <ng-template #outOfStock><p class="product-status out-of-stock">Hết hàng</p></ng-template>
+
+  <!-- <button routerLink="/product" class="back-btn">Quay lại</button> -->
+</div>
